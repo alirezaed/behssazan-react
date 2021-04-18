@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./react.development.js"></script>
     <script src="./react-dom.development.js"></script>
+    <script src="./babel.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
     <div id="root"></div>
 
     
-    <script>
+    <script type="text/babel">
         //React.createElement : tagName,attrebutes,children
         //ReactDOM.render : element to Render,where Should Render
 
@@ -23,24 +24,43 @@
             },
             className:'myclassName'
         }
-
-        const lis = [];
-        for (let i = 0;i<20;i++){
-            const li = React.createElement('li',i % 2 == 0 ? eStyle : {} ,"this is :" + i);
-            lis.push(li);
+        
+        const person1={
+            fname:'a'
+        }
+        const person2={
+            lname:'b'
         }
 
+        const person3 = {
+            ...person1,
+            ...person2
+        }
 
-        const ul = React.createElement('ul',{},lis);
-        const uljsx = <ul>{lis}</ul>
+        const { fname } = person3;
 
-        const mainElement = React.createElement('div',{
-            id:'main_div'
-        },uljsx);
+
+        function cerateText(i){
+            return `This is ${i}`;
+        }
         
-        ReactDOM.render(mainElement,document.getElementById('root'));
+        const lis = [];
+        for (let i = 0;i<20;i++){
+            const finalAtt = i % 2 == 0 ? eStyle : {}
+            const lijsx = <li {...finalAtt}>{cerateText(i)}</li>
+            lis.push(lijsx);
+        }
+
+        const li2 = <ul><li></li><li></li></ul>;
 
 
+        const mainElementJSX = <div id="main_div" className="asdasd">
+            <ul>
+                {lis}
+            </ul>
+        </div>
+        
+        ReactDOM.render(mainElementJSX,document.getElementById('root'));
 
     </script>
     
