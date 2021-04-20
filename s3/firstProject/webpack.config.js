@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
     entry: './src/index.js',
     output:{
-        path: path.resolve(__dirname, 'public','dist'),
+        path: path.resolve(__dirname, 'public'),
         filename: 'main.js',
     },
     module:{
@@ -24,7 +24,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'public'),
         compress: true,
-        port: 9000,
+        port: 3002,
       },
 };
   

@@ -1,13 +1,10 @@
-const person1 ={
-    fname:'ali'
-}
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const person2 = {
-    lname:'re s za ei'
-    
-}
 
-const p = {
-    ...person1,
-    ...person2
-}
+const rootNode = <ul>
+    <li>First</li>
+    <li>Second</li>
+</ul>
+
+ReactDOM.render(rootNode,document.getElementById('root'));
