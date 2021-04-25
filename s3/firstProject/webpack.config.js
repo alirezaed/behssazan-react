@@ -2,7 +2,7 @@ const path = require('path');
 
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/Comments/index.js',
     output:{
         path: path.resolve(__dirname, 'public'),
         filename: 'main.js',
